@@ -94,7 +94,19 @@ class LinkedList {
 
     reverse() {
         if(this.isEmpty()) return "Empty List"
-        if(this.size)
+        if(this.size ===1){
+            return this.head;
+        }
+        let pre=null;
+        let curr =this.head
+        while(curr){
+            let post = curr.next
+            curr.next=pre
+            pre=curr
+            curr=post
+            
+        }
+        this.head=pre
     }
 
 
@@ -109,3 +121,5 @@ console.log(list.getSize())
 list.insert(3, 1)
 list.print()
 list.search(3)
+list.reverse()
+list.print()
