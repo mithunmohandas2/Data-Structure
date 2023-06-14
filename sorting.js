@@ -15,7 +15,7 @@ function bubbleSort(array) {
     }
     return array;
 }
-    
+
 
 // ====================================
 
@@ -34,10 +34,29 @@ function insertionSort(array) {
     return array
 }
 
+
+// ====================================
+
+// Quick Sort:
+function quickSort(array) {
+    if (array.length<=1) return array;
+    let left=[];
+    let right=[];
+    const pivot=array[array.length-1]    //taking lase element as pivot
+    for (let i = 0; i < array.length-1; i++) {
+        if (array[i]<pivot)left.push(array[i])
+        else if (array[i]>=pivot)right.push(array[i])
+    }
+    return  [...quickSort(left),pivot,...quickSort(right)]
+}
+
+
+
 // ======================================
 //Sorting Methods:
 
-const array = [8,0, -7, 5, 4, -6, 8, 2, 4, -1]
+const array = [0,22,-29,445,-9099,1,13,12,-9]
 
-// console.log(bubbleSort(array)) 
-console.log(insertionSort(array))  
+// console.log(bubbleSort(array))
+// console.log(insertionSort(array))  
+console.log(quickSort(array))
