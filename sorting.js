@@ -54,26 +54,53 @@ function quickSort(array) {
 
 // Selection Sort:
 
-const array = [66,-2, -267, 776, 9, 31, -213, 152, -349]
 function selectionSort(array) {
-    for (let i = 0; i < array.length - 1; i++)
-        {
-            for (let j=i+1; j<array.length;j++){
-                if (array[i]<array[j]){    // descending order
-                    let temp = array[i]
-                    array[i]= array[j]
-                    array[j]= temp
-                }
+    for (let i = 0; i < array.length - 1; i++) {
+        for (let j = i + 1; j < array.length; j++) {
+            if (array[i] < array[j]) {    // descending order
+                let temp = array[i]
+                array[i] = array[j]
+                array[j] = temp
             }
         }
-       return array 
+    }
+    return array
 }
+
+// ====================================
+
+// Merge Sort:
+const array = [69,47,5,-33,-4,-2,112]
+function mergeSort(array) {
+    if (array.length <= 1) return array;
+    let pivot = Math.floor(array.length / 2)
+    let leftArray = array.slice(0, pivot)
+    let rightArray = array.slice(pivot)
+    return merge(mergeSort(leftArray), mergeSort(rightArray))
+}
+function merge(leftArray, rightArray) {
+    let sortedArray = []
+    while (leftArray.length && rightArray.length) {
+        if (leftArray[0] <= rightArray[0]) {
+            sortedArray.push(leftArray.shift())
+        } else {
+            sortedArray.push(rightArray.shift())
+        }
+    }
+    return sortedArray.concat(leftArray,rightArray)
+}
+
+
+
+
+
+
+
 
 // ======================================
 //Sorting Methods:
-
-
 // console.log(bubbleSort(array))
 // console.log(insertionSort(array))
 // console.log(quickSort(array))
-console.log(selectionSort(array))
+// console.log(selectionSort(array))
+console.log(mergeSort(array))
