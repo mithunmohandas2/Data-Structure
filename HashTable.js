@@ -44,8 +44,8 @@ class HashTable {
 }
 
 const hash = new HashTable(10);
-hash.set("names","Mithun");
+hash.set("Name","Rodriguez");
 hash.set("age",35);
-hash.set("manes","Miami");  // collisiion condition
+hash.set("place","Miami");  // collisiion condition
 hash.set("origin","USA");
 hash.display()
