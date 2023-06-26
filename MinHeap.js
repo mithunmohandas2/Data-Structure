@@ -1,4 +1,4 @@
-class MaxHeap {
+class MinHeap {
     constructor() {
         this.heap = []
     }
@@ -16,10 +16,10 @@ class MaxHeap {
         let rightChildIndex = (2 * index) + 2
         let largestIndex = index;
 
-        if (leftChildIndex < this.heap.length && this.heap[leftChildIndex] > this.heap[largestIndex]) {
+        if (leftChildIndex < this.heap.length && this.heap[leftChildIndex] < this.heap[largestIndex]) {
             largestIndex = leftChildIndex
         }
-        if (rightChildIndex < this.heap.length && this.heap[rightChildIndex] > this.heap[largestIndex]) {
+        if (rightChildIndex < this.heap.length && this.heap[rightChildIndex] < this.heap[largestIndex]) {
             largestIndex = rightChildIndex
         }
 
@@ -41,7 +41,7 @@ class MaxHeap {
 
     heapifyUp(index){
         let parentIndex = Math.floor ((index)/2)
-        if(index>0 && this.heap[index]>this.heap[parentIndex]){
+        if(index>0 && this.heap[index]< this.heap[parentIndex]){
             this.swap(index,parentIndex)
             this.heapifyUp(parentIndex)
         }
@@ -65,8 +65,8 @@ class MaxHeap {
     }
 }
 
-const heap = new MaxHeap()
-let array = [2,4,5,7,3,1,8,9]
+const heap = new MinHeap()
+let array = [21,47,52,67,13,19,78,99]
 heap.buildHeap(array)
 heap.insert(20)
 heap.peek()
