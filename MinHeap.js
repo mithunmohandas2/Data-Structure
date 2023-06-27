@@ -14,18 +14,18 @@ class MinHeap {
     heapifyDown(index) {
         let leftChildIndex = (2 * index) + 1
         let rightChildIndex = (2 * index) + 2
-        let largestIndex = index;
+        let smallestIndex = index;
 
-        if (leftChildIndex < this.heap.length && this.heap[leftChildIndex] < this.heap[largestIndex]) {
-            largestIndex = leftChildIndex
+        if (leftChildIndex < this.heap.length && this.heap[leftChildIndex] < this.heap[smallestIndex]) {
+            smallestIndex = leftChildIndex
         }
-        if (rightChildIndex < this.heap.length && this.heap[rightChildIndex] < this.heap[largestIndex]) {
-            largestIndex = rightChildIndex
+        if (rightChildIndex < this.heap.length && this.heap[rightChildIndex] < this.heap[smallestIndex]) {
+            smallestIndex = rightChildIndex
         }
 
-        if (largestIndex !== index){
-            this.swap(index,largestIndex)
-            this.heapifyDown(largestIndex)
+        if (smallestIndex !== index){
+            this.swap(index,smallestIndex)
+            this.heapifyDown(smallestIndex)
         }
     }
 
