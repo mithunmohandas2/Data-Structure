@@ -36,7 +36,7 @@ class Tries {
 
     prefix(pre) {
         let curr = this.root
-        for (i = 0; i < pre.length; i++) {
+        for (let i = 0; i < pre.length; i++) {
             let char = pre[i]
             if (!curr.children[char]) {
                 return false
@@ -57,3 +57,5 @@ tri.insert("elephant")
 
 console.log(tri.search("ball"))
 console.log(tri.search("car"))
+
+console.log(tri.prefix("app"))
